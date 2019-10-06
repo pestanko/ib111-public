@@ -105,6 +105,7 @@ Vytvorenie commitu sa skladá z dvoch častí:
 
 
 ##### Označenie súboru `hello.py`:
+
 Označiť pomocou `git add` je možné aj viac súborov v našom prípade si vystačíme len s jedným.
 
 ```bash
