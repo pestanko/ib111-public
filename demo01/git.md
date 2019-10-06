@@ -7,6 +7,7 @@ GIT je nástroj pre správu verzii (revízii). V súčasnoti patrí k najpouží
 V podstate mám moje zdrojové kódy - školský projekt, cvičenia, domáci projekt, projekt v práci.
 
 ### Problémy:
+
 - Ako tieto súbory co som vytvoril na pracovnom/školskom PC dostanem na domáci PC?
 - Ako môžem spolupracovať na projekte s otatnými kolegami/spolužiakmi?
 - Mám rozpracované riešenie, ktoré nikam nevedie a potrebujem sa "vrátiť" do predchádzajúceho stavu.
@@ -88,7 +89,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 Postatné informácie: 
 
-- `No commits yet` = zaťiaľ nemamé žiadne `commity` _(zmeny)_.
+- `No commits yet` - zaťiaľ nemamé žiadne `commity` _(zmeny)_.
 - `Untracked files:` - bude obsahovať zoznam súborov a priečinkov, ktoré aktualne v priečinku existuju,
 ale nie sú v repoziráre.
 - `(use "git add" to track)` - rovno nám GIT hovorí čo máme spraviť
@@ -192,9 +193,10 @@ git push -u origin master
 git push
 ```
 
-`git push` berie ako argumenty meno remote v našom prípade `origin` a meno `branch` ktorú chceme odoslať na server.
-Koncept branch-ý je taktiež nad rámec tohoto dema, vy si zatial vystačíte len s jednou branch-ou a to `master`,
-ktorá je už predvytvorená. Po zadaní tohoto príkazu by ste mali byť požiadaný o zadanie hesla - zadajte fakultné.
+Príkaz `git push` berie ako argumenty meno _remote_ v našom prípade `origin` a meno `branch` ktorú chceme odoslať na server.
+
+
+_Koncept `branch-ý` je taktiež nad rámec tohoto dema, vy si zatial vystačíte len s jednou branch-ou a to `master`, ktorá je už predvytvorená. Po zadaní tohoto príkazu by ste mali byť požiadaný o zadanie hesla - zadajte fakultné._
 
 
 Po tom, čo ste úspešne nahrali zmeny na server môžete si ich skontrolovať tým, 
@@ -238,7 +240,7 @@ git log         # will show the list of comits
 V prípade, že ste repozitár naklonovali, rovno sa vám nastavila `remote origin` na `https://xlogin@gitlab.fi.muni.cz/xlogin/ib111-demo.git`. 
 Odital vôbec pochádza názov `origin` = z ktorého serveru ste si stiahli zmeny a voci ktorému serveru sa synchronizujete.
 
-POZOR: `git clone` používate len vtedy ked chcete stiahnúť celý repozitár, ktorý nemáte na svojom PC. 
+**POZOR:** `git clone` používate len vtedy ked chcete stiahnúť celý repozitár, ktorý nemáte na svojom PC. 
 Ak repozitár existuje, používajte `git pull`.
 
 
@@ -251,6 +253,7 @@ Pozor: musia to byť separátne priečinky - `demo01` nesmie obsahovať `ib111-d
 
 
 ## Odkazy
+
 - <https://www.fi.muni.cz/pb071/man/#git>
 - <https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf>
 - <https://git-scm.com/book/en/v2>
