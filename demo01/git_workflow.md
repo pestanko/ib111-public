@@ -1,6 +1,6 @@
 # Základné git workflows
 
-Cheat-sheet základných flow a príkazov pre `GIT`.
+Cheat-sheet základných postupov práce a príkazov pre `GIT`.
 
 ## Inicializácia GIT-u
 
@@ -26,7 +26,7 @@ git pull origin master
 git pull
 ```
 
-## Vytvorenite zmien a nahranie zmien na vzdialeny repozitar
+## Vytvorenite zmien a nahranie zmien na vzdialený repozitár
 
 ```bash
 git add <files or directories>
@@ -37,7 +37,7 @@ git push
 ## Pomocné príkazy
 
 ```bash
-git status      # Show status of the reposit
+git status      # Show status of the repository
 git log         # Show all the commits in the repository
 git help        # Show help
 ```

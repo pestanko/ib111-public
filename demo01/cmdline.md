@@ -1,15 +1,15 @@
 # Základné príkazy
-V tomto dokumente si prestavime niektoré základné príkazy a ukázky ako s nimi pracovat.
+V tomto dokumente si prestavime niektoré základné príkazy a ukážky ako s nimi pracovať.
 
 # Anatómia príkazov
 
 Príkaz _(command)_ sa skľadá z niekolých častí:
-1. meno príkazu (ex. `ls`)
+1. meno príkazu (napr. `ls`)
 2. argumenty
     - prepínače (modifikujú ako sa príkaz správa), začínajú zvyčajne znakom pomlčka `-`
         - jednopísmenkové prepínače (`-l -p -r`)
         - jednopísmenkové prepínače s hodnotou (`-l 10 -f ahoj.txt`)
-        - dlhé prepínače (zväčša dve pomlcky na začiatku) (`--long --long-one arg --verbose`)
+        - dlhé prepínače (dve pomlčky na začiatku) (`--long --long-one arg --verbose`)
     - všeobencé argumenty (`ahoj svet ako sa mas`)
     
 ```bash
@@ -24,7 +24,7 @@ ls -la Documents  # `Documents` is an argument
 
 ## Ukážky:
 
-Základné ukážky a používanie príkazov na prácu so súbbormi
+Základné ukážky a používanie príkazov na prácu so súbormi
 
 ```bash
 mkdir school  # create directory `school`
@@ -34,15 +34,15 @@ mkdir -p ib111/demo01   # create inner directories (create ib111 first, then dem
 cd ib111/demo01  # change directory to ib111/demo01
 pwd              # Print working directory (where am I?)
 touch hello.py   # create empty file `hello.py` without any content
-ls               # Hello should be there
-echo "Hello!"    # Print string "hello to the console"
+ls               # hello.py should be there
+echo "Hello!"    # Print string "Hello!" to the console
 echo 'print("Hello!")' > hello.py # write content "print(...)" to the file hello.py
-cat hello.py     # print out the content of the `hello.py`
+cat hello.py     # print out content of the file `hello.py`
 nano hello.py    # launch the command line editor (nano, vim)
 rm hello.py      # remove file hello.py 
 ```
 
-Vytvorme súbor `hello.py` znova ale tentokrat bude o nieco zlozitejší.
+Vytvorme súbor `hello.py` znova, tentokrát bude o nieco zložitejší.
 
 ```bash
 nano hello.py
@@ -65,20 +65,22 @@ if __name__ == '__main__':
 Obsah môžeme vložiť do súboru otvoreného v editore `nano` pomocou klávesovej skratky `CTRL + SHIFT + V`.
 Súbor uložíme pomocou `CTRL-O` _(overwrite)_ a ukončíme editovanie pomocou `CTRL-X` _(close)_.
 
-Teraz môžeme súbor spustit pomocou príkazu:
+Teraz môžeme súbor spustiť pomocou príkazu:
 
 ```bash
 python3 hello.py
 ```
 
-Ak chceme súbor spustiť samostatne bez nutnosti písať pred ním `python3`, 
-je potrebné spraviť súbor spustitelným, na to sa v Unix svete používa príkaz na zmenu oprávnení `chmod`.
+Ak chceme súbor spustiť samostatne bez nutnosti písať pred ním `python3`, je potrebné spraviť súbor spustiteľným.
+Na to sa v Unix svete používa príkaz na zmenu oprávnení `chmod`:
 
 ```bash
 chmod +x hello.py
 ```
 
-Teraz môžeme súbor `hello.py` spustiť priamo z príkazovej riadky:
+Všimnime si tiež prvým riadok skriptu (`#! /usr/bin/env python3`) - ten určuje, pomocou čoho sa náš skript bude spúšťať.
+
+Teraz môžeme súbor `hello.py` spustiť priamo z príkazového riadka:
 
 ```bash
 ./hello.py   # leading ./ is required on Linux (not on Windows, hint: $PATH)

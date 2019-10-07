@@ -1,26 +1,25 @@
 # Git
 
-GIT je nástroj pre správu verzii (revízii). V súčasnoti patrí k najpoužívanejším nástrojom z tejto kategórie. Vy sa s ním budete stretávať aj na ďalších predmetoch vyučovaných na fakulte.
+GIT je nástroj pre správu verzií (revízií). V súčasnoti patrí k najpoužívanejším nástrojom svojho druhu. Vy sa s ním budete stretávať aj na ďalších predmetoch vyučovaných na fakulte.
 
-## Základný use-case
+## Základný prípad použitia
 
-V podstate mám moje zdrojové kódy - školský projekt, cvičenia, domáci projekt, projekt v práci.
+Máme zdrojové kódy / niekoľko súborov, ktoré chceme bezpečne uložiť´- školský projekt, cvičenia, domáci projekt, projekt v práci.
 
 ### Problémy:
 
-- Ako tieto súbory co som vytvoril na pracovnom/školskom PC dostanem na domáci PC?
-- Ako môžem spolupracovať na projekte s otatnými kolegami/spolužiakmi?
-- Mám rozpracované riešenie, ktoré nikam nevedie a potrebujem sa "vrátiť" do predchádzajúceho stavu.
+- Ako súbory, ktoré som vytvoril na pracovnom/školskom PC dostanem na domáci PC?
+- Ako môžem spolupracovať na projekte s mojimi kolegami/spolužiakmi?
+- Potrebujem súbory vrátiť do nejakého predchádzajúceho stavu, pretože najnovšie úpravy nevedú správnym smerom
 
-Všetky tieto problémy nástroje na správu verzii riešia. Každý po svojom, my sa však pozrieme na GIT.
+Všetky tieto problémy nástroje na správu verzií riešia. Každý nástroj trochu inak, my sa pozrieme na GIT.
 
 ## Základná práca 
 
-Nás bude zaujímať len naozaj základná práca, ktorá spočíva:
-- Vytvoriť repozitár (lokálne aj na serveri)
-- Nahrať zmeny na server
-- Stiahnúť si zmeny zo severu.
-
+Bude nás zaujímať len nazaj základná práca s GITom, takže:
+- Vytvorenie repozitára (lokálne aj na serveri)
+- Nahratie zmien na server
+- Získanie zmien zo severu.
 
 ### Príprava
 
@@ -33,14 +32,24 @@ pwd
 ls 
 ```
 
-Ak už adresaŕ máte vytvorený a máte v nom súbor napríklad `hello.py` tak to nie je žiaden problem.
-Naopak, ak tam súbor `hello.py` nemáte, vytvorte si ho, v postate stací ak ten súbor len vypíše `hello`,
-samotný obsah toho súboru nás zatiaľ zaujímať nebude.
+Ak už adresár máte vytvorený a máte v nom súbor napríklad `hello.py`, tak to nie je žiaden problém.
+Naopak, ak tam súbor `hello.py` nemáte, vytvorte si ho. Pre naše účely stačí, aby súbor existoval,
+jeho obsah zatiaľ zaujímať nebude.
 
-### Vytvorenie lokálneho repozitáru
 
-Vytvorme teraz GIT repozitár, v podstate co my spravíme je, že prehlásime náš priečinok `demo01` za lokálny repozitar.
-To znamená, všetko co do neho od teraz dáme, všetky súbory a všetky priečinky budeme mocť verzovať a narať na server.
+Pred ďalšou prácou potrebujeme GIT nastaviť. Toto nastavenie robíte vždy len prvý krát po tom co GIT nainštalujete.
+
+Nastavenie pri prvom použití:
+
+```bash
+git config --global user.name "Jméno Příjmení"
+git config --global user.email "<xlogin>@fi.muni.cz"
+```
+
+### Vytvorenie lokálneho repozitára
+
+Vytvorme si ďalej lokálny GIT repozitár. V podstate len GITu povieme, že náš priečinok `demo01` má považovať za lokálny repozitár.
+Potom všetko čo do neho odvtedy dáme, všetky súbory a všetky priečinky, budeme mocť verzovať a nahrávať na server.
 
 Vytvorenie GIT repozitára:
 
@@ -48,32 +57,21 @@ Vytvorenie GIT repozitára:
 $ git init  # Will initialize an empty git repository in the current directory
 ```
 
-Po zadaní tohoto príkazu sa nám vytvorí v aktuálnom priečinku prázdny git repozitár.
-
-Pred tým ako budete mocť pridávať vaše zmeny do repozitára, tak je potrebné GIT nastaviť.
-Toto nastavenie robíte vždy len prvý krát po tom co GIT nainštalujete.
-
-Nastavenie pri prvom použití:
-
-```bash
-git config --global user.name "Jméno Příjmení"
-git config --global user.email "<XLOGIN>@fi.muni.cz"
-```
-
 ## Prvý commit
 
-Po úspešnej inicializácii GIT-u a vytvorení lokálneho prepozitára je čas aby sme sa naučili ako pridať do repozitára naše zmeny.
-Spomínate na súbor `hello.py`, ten by sa mal nachádzať v priečinku s náším repozitárom, avšak pozor! Súbor nie je v našom repozirári,
-lebo sme ho tam ešte nedali, doslova sme ešte nepovedali GIT-u, že tento súbor by si mal všímať
+Po úspešnej inicializácii GIT-u a vytvorení lokálneho prepozitára môžeme do repozitára začať pridávať naše zmeny.
 
-Ako sa teda k tomuto všetkému dopátrame:
+Hlavným aktérom bude súbor `hello.py` v priečinku s naším repozitárom. Zatiaľ ho ale ešte GIT neregistruje ako súčasť nášho repozitára.
+GIT má totiž vlastný spôsob sledovania súborov, nepoužíva len súborový systém. Najskôr teda musíme GITu povedať, že by si mal všímať súbor `hello.py`.
+
+Ako sa k tomuto všetkému dopátrame:
 
 ```bash
-ls          # should print out the content of the directory, and hello.py should be there
-git status  # show status of our repository
+ls          # prints out the content of the directory, hello.py should be there
+git status  # shows status of our repository
 ```
 
-Výstup git status by mal vyzerat nejak nasledovne:
+Výstup prákazu `git status` by mal vyzerať približne takto:
 
 ```
 On branch master
@@ -90,14 +88,14 @@ nothing added to commit but untracked files present (use "git add" to track)
 Postatné informácie: 
 
 - `No commits yet` - zaťiaľ nemamé žiadne `commity` _(zmeny)_.
-- `Untracked files:` - bude obsahovať zoznam súborov a priečinkov, ktoré aktualne v priečinku existuju,
-ale nie sú v repoziráre.
-- `(use "git add" to track)` - rovno nám GIT hovorí čo máme spraviť
+- `Untracked files:` - zoznam súborov a priečinkov, ktoré aktualne v priečinku existujú, ale nie sú v repozitári.
+- `(use "git add" to track)` - GIT nám napovedá, čo môžeme spraviť
 
 
 ### Vytvorenie commitu _(zmeny)_
 
-`Commit` je zmena, snapshot, ktorý si chceme poznamenať do nášho repoziráru.
+`Commit` je zmena, snapshot, ktorý si chceme poznamenať do nášho repoziráru. Commity (a nejaké ďalšie metadáta, nateraz nepodstatné)
+sú jediné, čo si GIT pamätá.
 
 Vytvorenie commitu sa skladá z dvoch častí:
 - Označenie súborov, ktoré majú byť do `commitu` pridané (`git add <subor>`)
@@ -106,7 +104,7 @@ Vytvorenie commitu sa skladá z dvoch častí:
 
 ##### Označenie súboru `hello.py`:
 
-Označiť pomocou `git add` je možné aj viac súborov v našom prípade si vystačíme len s jedným.
+Označiť pomocou `git add` je možné aj viac súborov, v našom prípade si vystačíme len s jedným.
 
 ```bash
 git add hello.py
@@ -129,9 +127,9 @@ Changes to be committed:
 Podstatná informácia: `Changes to be committed:` a `new file:   hello.py`.
 
 
-##### Vytvorenie commitu ako takého
+##### Vytvorenie commitu
 
-Vytvorenie commitu (snapshotu) je už teraz jednoduché stačí zavolať `git commit`
+Vytvorenie commitu (snapshotu) je už teraz jednoduché - stačí zavolať `git commit`
 
 ```bash
 git commit -m "Adding hello.py to my repository"
@@ -151,78 +149,77 @@ Práve sa nám podarilo vytvoriť nový commit.
 
 Fakulta ponúka vlastný GIT server, na ktorý si môžete svoje zmeny nahrávať. 
 
-V podstate potrebujete vytvorit vzdialený repozitár _(remote)_ a ten "spárovať" s lokálnym.
+Potrebujete vytvorit vzdialený repozitár _(remote)_ (na serveri) a ten "spárovať" s vaším lokálnym repozitárom.
 
-### Vytvorenie vzdialeného repozirára
+### Vytvorenie vzdialeného repozitára
 
 Postup:
 
-1. Prihláste sa do fakultného GitLabu - <https://gitlab.fi.muni.cz/> (fakultné prihlásenie).
+1. Prihláste sa do fakultného GitLabu - <https://gitlab.fi.muni.cz/> (xlogin + sekundárne heslo).
 2. V ľavom menu vyberte položku `Projects`.
 3. Kliknite na zelené tlačítko `New project`.
 4. Název projektu zvoľte `ib111-demo01` a viditelnosť ponechajte na `private`.
 
-Po vytvorení nového projektu _(repozitára)_ uvidíte inštrukcie, ako tento prázdny vzdialený repozitár spárovať s vaším lokálnym.
+Po vytvorení nového projektu _(repozitára)_ uvidíte inštrukcie ako tento prázdny vzdialený repozitár spárovať s vaším lokálnym.
 
-Pozor, spárovanie je jednosmerné a vy chcete len povedať svojmu lokálnemu repozitáre o existencii vzdialeného, čize,
-vzdialený repozitár o Vašom lokálnom vedieť nebude, a preto vačšinu operácii budete musieť robiť z Vašich lokálnych kópii.
+Pozor, spárovanie je jednosmerné, chcete len povedať svojmu lokálnemu repozitáru o existencii vzdialeného.
+Vzdialený repozitár o Vašom lokálnom vedieť nebude, a preto vačšinu operácii budete robiť z Vašich lokálnych kópií.
 
 Prepojenie lokálneho repozitára so vzdialeným:
 
 ```bash
-git remote add origin https://xlogin@gitlab.fi.muni.cz/xlogin/ib111-demo.git
+# namiesto <xlogin> zadajte Váš xlogin
+git remote add origin https://<xlogin>@gitlab.fi.muni.cz/<xlogin>/ib111-demo.git
 ```
 
-Tento príkaz pridá informáciu o _remote_ (vzdialenom repozitáre do Vášho lokálneho). 
-Vzdialenych repozitarov môžete mať niekolko, avšak to nad rámec tohoto dema.
+Tento príkaz pridá informáciu o _remote_ (vzdialenom repozitári) do Vášho lokálneho. 
+Vzdialenych repozitarov môžete mať niekolko, avšak to je nad rámec tohoto dema.
 
-Náš remote sa volá `origin` - možeme ho pomenovať ľubovolne, avšak `origin` je zaužívané meno(neskôr vysvetlím prečo). 
+Náš remote sa volá `origin` - možeme ho pomenovať ľubovolne, `origin` je zaužívané meno. 
 
 ### Nahranie zmien na server
 
-Nahranie zmien spravíme pomocou príkazu `git push`, ktorý vezme aktuálny stav repozitára a nahrá jeho obsah na vzdialený server.
+Nahranie zmien spravíme pomocou príkazu `git push`, ktorý vezme aktuálny stav repozitára ("históriu commitov") a nahrá jeho obsah na vzdialený server.
 
 Prikáz:
 ```bash
 # git push <remote> <branch>
-# Our for our example:
+# For our example:
 git push origin master
 
-# In order not to always write the name of origin and branch we can set them `as default`
+# In order not to always write the name of origin and branch we can set them as `default`
 git push -u origin master 
 # After you can just write without name of remote or branch
 git push
 ```
 
-Príkaz `git push` berie ako argumenty meno _remote_ v našom prípade `origin` a meno `branch` ktorú chceme odoslať na server.
+Príkaz `git push` berie ako argumenty meno _remote_, v našom prípade `origin`, a meno `branch` ktorú chceme odoslať na server.
 
 
-_Koncept `branch-ý` je taktiež nad rámec tohoto dema, vy si zatial vystačíte len s jednou branch-ou a to `master`, ktorá je už predvytvorená. Po zadaní tohoto príkazu by ste mali byť požiadaný o zadanie hesla - zadajte fakultné._
+_Koncept `branch-í` je taktiež nad rámec tohoto dema, zatiaľ si vystačíte len s jednou branch-ou (`master`), ktorá je už predvytvorená. Po zadaní tohoto príkazu by ste mali byť požiadaní o zadanie hesla - zadajte sekundárne._
 
 
-Po tom, čo ste úspešne nahrali zmeny na server môžete si ich skontrolovať tým, 
-že sa pozriete ci vám pribudli nejake commity na Gitlabe.
-
+Po tom, čo ste úspešne nahrali zmeny na server si ich môžete skontrolovať na webe GitLabu.
 
 ## Stiahnutie zmien z repozitára
 
-V prípade, že máte na svojom PC už lokálnu verziu repozitára, pouzite príkaz `git pull`
+V prípade, že máte na svojom PC lokálnu verziu repozitára, použite príkaz `git pull`
 
 ```bash
-# Go to your local repository (in your folder, example: ib111/demo01)
+# Go to your local repository (in your folder, like: ib111/demo01)
 cd ib111/demo01
 
 # call git pull
 git pull origin master
 
-# if you set upstream correctly `git push -u origin master`
+# if you set upstream correctly (`git push -u origin master`)
 # you can just call git pull without name of the remote or branch
 git pull
 ```
 
-Ak by ste mali nejake konflikty, to znamená, že zmeny v lokálnom repozitáre sa líšia od tých, čo sú na vzdialenom repozitári,
-tak je ich potrebné vyriešiť. Vám by sa to však stat nemalo, minimalne nie zo začiatku. Na to aby ste zistili ako na to, 
-je na internete kopec navodov, nejaké sú aj v sekcii odkazy.
+Ak sa GIT bude sťažovať na nejaké konflikty znamená to, že zmeny v lokálnom repozitáre sa líšia od tých, čo sú na vzdialenom repozitáre
+a je ich potrebné vyriešiť rućne. Vám by sa to však stať nemalo, minimálne nie zo začiatku. Na to aby ste zistili ako na riešenie konfliktov 
+je na internete kopec návodov, nejaké sú aj v sekcii `odkazy`.
 
 ### Stiahnutie celého repozitára na svoj PC
 
@@ -231,15 +228,15 @@ V prípade, že na svojom PC nemáte lokálnu verziu (kópiu) repozitára, použ
 ```bash
 # Command will download the repository to the current directory
 # It will create new folder named `ib111-demo` in your current directory
-git clone https://xlogin@gitlab.fi.muni.cz/xlogin/ib111-demo.git
+git clone https://<xlogin>@gitlab.fi.muni.cz/<xlogin>/ib111-demo.git
 # To get to the local repository
 cd ib111-demo
 git status
-git log         # will show the list of comits 
+git log         # will show the list of commits 
 ```
 
 V prípade, že ste repozitár naklonovali, rovno sa vám nastavila `remote origin` na `https://xlogin@gitlab.fi.muni.cz/xlogin/ib111-demo.git`. 
-Odital vôbec pochádza názov `origin` = z ktorého serveru ste si stiahli zmeny a voci ktorému serveru sa synchronizujete.
+Odital vôbec pochádza názov `origin` = z ktorého serveru ste si stiahli zmeny a voči ktorému serveru sa synchronizujete.
 
 **POZOR:** `git clone` používate len vtedy ked chcete stiahnúť celý repozitár, ktorý nemáte na svojom PC. 
 Ak repozitár existuje, používajte `git pull`.
@@ -249,8 +246,8 @@ Ak repozitár existuje, používajte `git pull`.
 
 1. Pomocou `git clone` si vytvorte novú variantu lokálneho repozitára (budete mat jak `demo01` tak `ib111-demo01`)
 Pozor: musia to byť separátne priečinky - `demo01` nesmie obsahovať `ib111-demo01` a naopak.
-2. Zmente súbor `hello.py` a vytvorte `world.txt` v `demo01`, oba nahrajte na vzdialený server. 
-3. Zmente adresár do `ib111-demo01` a pomocou `git pull` si stiahnite najnovšie zmeny
+2. Zmeňte súbor `hello.py` a vytvorte `world.txt` v `demo01`, oba nahrajte na vzdialený server. 
+3. Zmeňte aktuálny adresár do `ib111-demo01` a pomocou `git pull` si stiahnite najnovšie zmeny
 
 
 ## Odkazy
