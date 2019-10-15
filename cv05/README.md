@@ -1,11 +1,98 @@
-# [Cvičenie 04 - Řetězce a seznamy](https://www.fi.muni.cz/IB111/sbirka/05-retezce_a_seznamy.html)
+# [Cvičenie 05 - Řetězce a seznamy](https://www.fi.muni.cz/IB111/sbirka/05-retezce_a_seznamy.html)
 
 
 Na tomto cvičení sa budeme venovať témam:
 
-- Debugger
-- Náhodnosť
-- Analýza
+- Pass by reference
+- Zoznamy
+- Retazce
+
+## Pass by reference
+
+
+###  Opakovanie:
+
+Operátor rovná sa `=` - ako funguje, preco funguje tak, ako funguje a co to ma spoločné s volaním funkcii.
+[Python tutor odkaz](http://pythontutor.com/visualize.html#code=a%20%3D%2010%20%2B%201%0Ab%20%3D%2010%20%2B%201%0Ac%20%3D%20a%0Ad%20%3D%2010%20%2B%202%0A&cumulative=false&curInstr=4&heapPrimitives=true&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false).
+
+```python
+
+a = 10 + 1
+b = 10 + 1
+c = a
+d = 10 + 2
+
+print(f"id(a) == id(b) ~> {id(a)} == {id(b)} ~> {id(a) == id(b)}")
+
+```
+
+### Predavanie zoznamov:
+
+
+```python
+
+def simple_add(a, b):
+  a += b
+  return a
+
+
+def print_simple_add(a, b):
+  print(f"BEFORE: a={a}; b={b}")
+  print(f"simple_add({a}, {b}) = {simple_add(a, b)}")
+  print(f"AFTER: a={a}; b={b}")
+
+
+# EXECUTE:
+
+print_simple_add(1, 2)
+print()
+print_simple_add([1], [2])
+
+```
+
+### Kopírovanie zoznamov:
+
+```python
+def inc_list_same(input: list) -> list:
+    for i in range(len(list)):
+        input[i] += 1
+
+    return input
+
+
+def inc_list_new(input: list) > list:
+    new_list = []
+    for i in input:
+        new_list.append(i + 1)
+    return new_list
+
+def inc_list_new2(input: list) -> list:
+    return [i + 1 for i in input]
+```
+
+Tretia varianta je zápis pomocou tzv. [List Comprehensions in Python](https://www.pythonforbeginners.com/basics/list-comprehensions-in-python).
+
+### List Comprehensions _(Advanced)_
+
+Veľmi užitočný zápis, ktorý budete používať aj na Haskell-y.
+
+```python
+# Standard Way:
+new_list = []
+for i in old_list:
+    if filter(i):
+        new_list.append(expressions(i))
+
+# Comprehension Way:
+new_list = [expression(i) for i in old_list if filter(i)]
+
+```
+
+#### Syntax:
+
+```python
+[ expression for item in list if conditional ]
+```
 
 ## Úlohy na Zoznamy
 
@@ -181,3 +268,8 @@ print(caesar('zirafa', 3))
 # CLUDID
 ```
 
+
+## Odkazy
+- [How do I pass a variable by reference?](https://stackoverflow.com/questions/986006/how-do-i-pass-a-variable-by-reference)
+- [How do I write a function with output parameters](https://docs.python.org/3/faq/programming.html#how-do-i-write-a-function-with-output-parameters-call-by-reference)
+- [Python Tutor](http://pythontutor.com/visualize.html#mode=edit)
