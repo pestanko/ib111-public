@@ -164,7 +164,50 @@ print(flatten([[0, 2, 3], [1, 2, 3], [9, 10]]))
 ```
 
 
+### Bonus: List Map _(Advanced)_
+
+Napíšte funkciu `list_map`, ktorá vezme na vstupe `list` a ľubovolnú funkciu, ktorá bude brať práve jeden argument.
+
+Funkcia bude iterovať pole a aplikuje poskitnutú funkciu na každý z prvkov poľa a výsledok uloží do nového poľa.
+
+```python
+
+def _double(x):
+    return x*2
+
+def list_map(iterable: list, func) -> list:
+    pass
+
+print(list_map([1,2,3,4], _double))
+# [2, 4, 6, 8]
+```
+
+_Tip: Poznáte z Haskell-u, správa sa ako funkcia `map`._
+
 ## Úlohy na Reťazce
+
+### Prevod reťazca na pole znakov a naspäť
+
+Napíšte dve funkcie, jedna, ktorá prevedie reťazec na pole nakov a druhá, ktorá vezme pole znakov a spaví z neho reťazec.
+
+```python
+def str_to_char_list(string: str) -> list:
+    pass
+
+
+def str_from_char_list(chars: list) -> str:
+    pass
+
+
+print(str_to_char_list("Ahoj")) 
+# ['A', 'h', 'o', 'j']
+
+print(str_from_char_list(['A', 'h', 'o', 'j'])) 
+# "Ahoj"
+
+```
+
+
 
 ### [5.2.1. Prokládání textu textem](https://www.fi.muni.cz/IB111/sbirka/05-retezce_a_seznamy.html#prokladani-textu-textem)
 
