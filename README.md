@@ -10,6 +10,7 @@ There are multiple covered topics - some of them are more advanced and not neces
 
 - [Tutorial 04](./cv04/README.md)
 - [Tutorial 05](./cv05/README.md)
+- [Tutorial 06](./cv06/README.md)
 
 
 
