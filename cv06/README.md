@@ -31,18 +31,14 @@ def dice_stats(count: int) -> List[int]:
     return numbers
 ```
 
-Na otestovanie správneho otypovania, pouzijeme nástroj [`mypy`](http://mypy-lang.org/).
+Na otestovanie správneho otypovania, pouzijeme nástroj [`mypy`](http://mypy-lang.org/) alebo [online](https://mypy-play.net/?mypy=latest&python=3.7).
 
-Inštalácia:
-
-```bash
-python3 -m pip install mypy
-```
+Inštalácia _(na školských PC je už `mypy` nainštalované)_ je popísaná v sekcii [návody](https://www.fi.muni.cz/IB111/navody):
 
 Použitie:
 
 ```bash
-mypy program.py
+mypy --strict program.py
 ```
 
 ## Testovanie
