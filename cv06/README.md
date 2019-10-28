@@ -1,4 +1,4 @@
-# [Cvičenie 05 - 6. Binární vyhledávání, testování, typy](https://www.fi.muni.cz/IB111/sbirka/06-binarni_vyhledavani.html)
+# [Cvičenie 06 Binární vyhledávání, testování, typy](https://www.fi.muni.cz/IB111/sbirka/06-binarni_vyhledavani.html)
 
 
 Na tomto cvičení sa budeme venovať témam:
