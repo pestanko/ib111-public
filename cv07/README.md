@@ -33,12 +33,12 @@ print(letters[:])        # vsechny polozky - vytvori kopii seznamu
 ######################
 # Operace se seznamy #
 ######################
-print(len(letters))       # delka seznamu
-print(letters + letters)  # seznamy lze scitat (spojovat)
-print(letters * 3)        # seznamy lze nasobit celym cislem (opakovat)
-letters.append('f')       # pridani polozky na konec seznamu
+print(len(letters))      # delka seznamu
+print(letters + letters) # seznamy lze scitat (spojovat)
+print(letters * 3)       # seznamy lze nasobit celym cislem
+letters.append('f')      # pridani polozky na konec seznamu
 print(letters)
- # odstrani a vrati posledni polozku (v parametru lze zadat pozici polozky)
+# odstrani a vrati posledni polozku (v parametru lze zadat pozici)
 print(letters.pop())     
 print(letters)
 
@@ -47,20 +47,21 @@ print(letters)
 ######################
 letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', ]
 
-false_copy = letters            # vytvori jen novy odkaz na stejny seznam
-copy = letters[:]               # zkopirovany seznam
-copy2 = list(letters)           # jinak zkopirovany seznam
+false_cp = letters       # vytvori jen novy odkaz na stejny seznam
+copy = letters[:]        # zkopirovany seznam
+copy2 = list(letters)    # jinak zkopirovany seznam
 
-letters[0] = 'alpha'                        # menime original
-print(false_copy[0], false_copy == letters)  # falesna kopie obsahuje zmenu
-print(copy[0], copy == letters)              # prava kopie zmenu neobsahuje
+letters[0] = 'alpha'                    # menime original
+print(false_cp[0], false_cp == letters) # falesna kopie obsahuje zmenu
+print(copy[0], copy == letters)         # prava kopie zmenu neobsahuje
 print(copy2[0], copy2 == letters)
 
 ###################
 # Vnořené seznamy #
 ###################
 
-# seznam muze obsahovat vsechny ostatni datove typy (dokonce je muze michat)
+# seznam muze obsahovat vsechny ostatni datove typy 
+# (dokonce je muze michat)
 divergent_list = [12, 1.1, "string", True, False, None]
 
 # prirozene muze tedy obsahovat i dalsi seznamy
@@ -136,10 +137,6 @@ if __name__ == '__main__':
 
 ### Pokročilejšia varianta
 
-<details>
-<summary>Zobraziť</summary>
-<br>
-
 ```python
 import time
 from typing import List
@@ -185,13 +182,10 @@ if __name__ == '__main__':
   print_result(time_measure(linear_search, NUMBER, ARRAY))
 ```
 
-</details>
-
-
 ### Veľmi pokročilá varianta nad rámec predmetu - [decorator](Decorator.md):
 
-- Odkaz: <Decorator.md>
-- Zdrojový kod: <measure_time_decorator.py>
+- <Odkaz>(Decorator.md)
+- [Zdrojový kod](measure_time_decorator.py)
 
 
 ## Úlohy

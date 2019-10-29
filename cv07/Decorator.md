@@ -7,10 +7,6 @@ import time
 import functools
 from typing import List
 
-ARRAY = [*range(0, 1000000, 2)]
-NUMBER = 942185
-
-
 def time_measure(func):
   @functools.wraps(func)
   def _wrapper(*args, **kwargs):
@@ -44,6 +40,8 @@ def print_result(condition: bool) -> None:
   print("found" if condition else "not found")
 
 if __name__ == '__main__':
+  ARRAY = [*range(0, 1000000, 2)]
+  NUMBER = 942185
   print_result(binary_search(NUMBER, ARRAY))
   print_result(linear_search(NUMBER, ARRAY))
 ```
