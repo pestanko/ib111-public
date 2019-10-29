@@ -22,10 +22,10 @@ print(letters[1])        # druha polozka
 print(letters[-1])       # posledni polozka
 print(letters[-2])       # predposledni polozka
 print()
-print(letters[3:7])      # podseznam polozek s indexem i: 3 <= i < 7    (funguje podobne jako range)
+print(letters[3:7])      # podseznam polozek s indexem i: 3 <= i < 7
 print(letters[:7])       # polozky s indexem i: i < 7
 print(letters[3:])       # polozky s indexem i: 3 <= i
-print(letters[3:7:2])    # kazda druha polozka s indexem i: 3 <= i < 7    (funguje podobne jako range)
+print(letters[3:7:2])    # kazda druha polozka s indexem i: 3 <= i < 7
 print(letters[::3])      # kazda treti polozka
 print(letters[::-1])     # seznam polozek pozpatku
 print(letters[:])        # vsechny polozky - vytvori kopii seznamu
@@ -33,13 +33,13 @@ print(letters[:])        # vsechny polozky - vytvori kopii seznamu
 ######################
 # Operace se seznamy #
 ######################
-print(len(letters))          # delka seznamu
-print(letters + letters)     # seznamy lze scitat (spojovat)
-print(letters * 3)           # seznamy lze nasobit celym cislem (opakovat)
-letters.append('f')         # pridani polozky na konec seznamu
+print(len(letters))       # delka seznamu
+print(letters + letters)  # seznamy lze scitat (spojovat)
+print(letters * 3)        # seznamy lze nasobit celym cislem (opakovat)
+letters.append('f')       # pridani polozky na konec seznamu
 print(letters)
-print(letters.pop())
-    # odstrani a vrati posledni polozku (v parametru lze zadat pozici polozky)
+ # odstrani a vrati posledni polozku (v parametru lze zadat pozici polozky)
+print(letters.pop())     
 print(letters)
 
 ######################
@@ -87,6 +87,12 @@ binary_search   # log(n) - logaritmicka zlozitost
 ### Intuitívne meranie rýchlosti implementácie
 
 ```python
+import time
+from typing import List
+
+ARRAY = [*range(0, 1000000, 2)]
+NUMBER = 942185
+
 def time_measure(func) -> None:
     start = time.time()
     func()
@@ -94,13 +100,8 @@ def time_measure(func) -> None:
     diff = end - start
     print(f"Func {func.__name__} takes {diff:.08f} sec")
 
-
 def linear_search(number: int, array: List[int]) -> bool:
-    for i in array:
-        if i == number:
-            return True
-    return False
-
+    return number in array
 
 def binary_search(needle: int, haystack: List[int]) -> bool:
     lower_bound = 0
@@ -117,17 +118,13 @@ def binary_search(needle: int, haystack: List[int]) -> bool:
 
 
 def linear_in_array() -> None:
-    array = [*range(0, 1000000, 2)]
-    number = 942185
-    if linear_search(number, array):
+    if linear_search(NUMBER, ARRAY):
         print("found")
     else:
         print("not found")
 
 def binary_in_array() -> None:
-    array = [*range(0, 1000000, 2)]
-    number = 942185
-    if binary_search(number, array):
+    if binary_search(NUMBER, ARRAY):
         print("found")
     else:
         print("not found")
@@ -136,6 +133,65 @@ if __name__ == '__main__':
     time_measure(binary_in_array)
     time_measure(linear_in_array)
 ```
+
+### Pokročilejšia varianta
+
+<details>
+<summary>Zobraziť</summary>
+<br>
+
+```python
+import time
+from typing import List
+
+def time_measure(func, *args, **kwargs) -> any:
+    start = time.time()
+
+    result = func(*args, **kwargs)
+
+    end = time.time()
+    diff = end - start
+
+    print(f"Func {func.__name__} takes {diff:.08f} sec")
+    return result
+
+def linear_search(number: int, array: List[int]) -> bool:
+    return number in array
+
+def binary_search(needle: int, haystack: List[int]) -> bool:
+    lower_bound = 0
+    upper_bound = len(haystack) - 1
+
+    while lower_bound <= upper_bound:
+        middle = int((lower_bound + upper_bound) / 2)
+
+        if haystack[middle] == needle:
+            return True
+        elif haystack[middle] > needle:
+            upper_bound = middle - 1
+        else:
+            lower_bound = middle + 1
+
+    return False
+
+def print_result(condition: bool) -> None:
+  print("found" if condition else "not found")
+
+if __name__ == '__main__':
+  ARRAY = [*range(0, 1000000, 2)]
+  NUMBER = 942185
+
+  print_result(time_measure(binary_search, NUMBER, ARRAY))
+  print_result(time_measure(linear_search, NUMBER, ARRAY))
+```
+
+</details>
+
+
+### Veľmi pokročilá varianta nad rámec predmetu - [decorator](Decorator.md):
+
+- Odkaz: <Decorator.md>
+- Zdrojový kod: <measure_time_decorator.py>
 
 
 ## Úlohy
