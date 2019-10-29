@@ -1,4 +1,4 @@
-# [Cvičenie 07 7. Algoritmy nad seznamy]https://www.fi.muni.cz/IB111/sbirka/07-seznamy_algoritmy.html)
+# [Cvičenie 07 7. Algoritmy nad seznamy](https://www.fi.muni.cz/IB111/sbirka/07-seznamy_algoritmy.html)
 
 Na tomto cvičení sa budeme venovať témam:
 
@@ -72,6 +72,9 @@ matrix[-1][0] = 42
 print(matrix)
 ```
 
+__[Dokumentacia](https://docs.python.org/3/tutorial/datastructures.html)__
+
+
 ## Zlozitosť operácii
 
 ```python
@@ -91,7 +94,7 @@ binary_search   # log(n) - logaritmicka zlozitost
 import time
 from typing import List
 
-ARRAY = [*range(0, 1000000, 2)]
+ARRAY = list(range(0, 1000000, 2))
 NUMBER = 942185
 
 def time_measure(func) -> None:
@@ -175,7 +178,7 @@ def print_result(condition: bool) -> None:
   print("found" if condition else "not found")
 
 if __name__ == '__main__':
-  ARRAY = [*range(0, 1000000, 2)]
+  ARRAY = list(range(0, 1000000, 2))
   NUMBER = 942185
 
   print_result(time_measure(binary_search, NUMBER, ARRAY))
@@ -184,7 +187,7 @@ if __name__ == '__main__':
 
 ### Veľmi pokročilá varianta nad rámec predmetu - [decorator](Decorator.md):
 
-- <Odkaz>(Decorator.md)
+- [Odkaz](Decorator.md)
 - [Zdrojový kod](measure_time_decorator.py)
 
 
