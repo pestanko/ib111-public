@@ -36,16 +36,20 @@ queue = deque(["Petr", "Zdenek", "Filip"]) # 3 studenti cekaji ve fronte na obed
 
 
 queue.append("Kuba") # Kuba prisel na konec fronty
-print(queue) # deque(["Petr", "Zdenek", "Filip", "Kuba"])
+print(queue) 
+# deque(["Petr", "Zdenek", "Filip", "Kuba"])
 
 queue.append("Roman") # Roman prisel na konec fronty
-print(queue) # deque(["Petr", "Zdenek", "Filip", "Kuba", "Roman"])
+print(queue) 
+# deque(["Petr", "Zdenek", "Filip", "Kuba", "Roman"])
 
-student = queue.popleft() # prvni student ve fronte (Petr) dostal obed
-print(queue, student) # deque(["Zdenek", "Filip", "Kuba", "Roman"]), student: "Petr"
+student = queue.popleft() # prvni ve fronte (Petr) dostal obed
+print(queue, student) 
+# deque(["Zdenek", "Filip", "Kuba", "Roman"]), student: "Petr"
 
-student = queue.popleft() # dalsi student ve fronte (Zdenek) dostal obed
-print(queue, student) # deque(["Filip", "Kuba", "Roman"]), student: "Zdenek"
+student = queue.popleft() # dalsi ve fronte (Zdenek) dostal obed
+print(queue, student) 
+# deque(["Filip", "Kuba", "Roman"]), student: "Zdenek"
 ```
 
 ### [Množina](https://www.fi.muni.cz/IB111/sbirka/08-datove_struktury.html#mnoziny)
@@ -108,10 +112,12 @@ points_alt = dict(Jack=66, Peter=0, Denis=0)
 print(points["Jack"]) # 66
 
 points["Tom"] = 60 # pridani nove hodnoty do slovniku
-print(points) # {"Jack":66, "Peter":0, "Denis":0, "Tom":60}
+print(points) 
+# {"Jack":66, "Peter":0, "Denis":0, "Tom":60}
 
 points["Peter"] += 60 # zmena hodnoty pod nejakym klicem
-print(points) # {"Jack":66, "Peter":60, "Denis":0, "Tom":60}
+print(points) 
+# {"Jack":66, "Peter":60, "Denis":0, "Tom":60}
 
 del points["Denis"] # smazani zaznamu s klicem "Denis"
 # body: {"Jack":66, "Peter":60, "Tom":60}
@@ -137,9 +143,9 @@ else:
 
 ## Úlohy
 
-Úlohy na zásobníky
+### Úlohy na zásobníky
 
-### [8.1.1. Interpretace výrazu v postfixu](https://www.fi.muni.cz/IB111/sbirka/08-datove_struktury.html#interpretace-vyrazu-v-postfixu)
+#### [8.1.1. Interpretace výrazu v postfixu](https://www.fi.muni.cz/IB111/sbirka/08-datove_struktury.html#interpretace-vyrazu-v-postfixu)
 
 
 Při běžném počítání s aritmetickými výrazy `6 + 5` používáme takzvanou infixovou notaci s operátorem mezi operandy. 
@@ -164,9 +170,9 @@ print(evaluate_postfix("15 7 1 1 + - / 3 * 2 1 1 + + -")) # 5
 
 ---
 
-Úlohy na fronty
+### Úlohy na fronty
 
-### [8.2.1. Má mě rád, nemá mě rád](https://www.fi.muni.cz/IB111/sbirka/08-datove_struktury.html#ma-me-rad-nema-me-rad)
+#### [8.2.1. Má mě rád, nemá mě rád](https://www.fi.muni.cz/IB111/sbirka/08-datove_struktury.html#ma-me-rad-nema-me-rad)
 
 Nejprve si vygenerujeme _(náhodne)_ kytici lineárně uspořádaných `n` květin, každou o 1 až 4 okvětních lístcích. 
 Poté vezmeme první květinu a utrhneme z ní právě jeden lístek a _zařadíme ji nakonec_. 
@@ -184,9 +190,9 @@ print(game(10))
 
 ---
 
-Úlohy na množiny
+### Úlohy na množiny
 
-### [8.4.1. Kontrola unikátnosti seznamu](https://www.fi.muni.cz/IB111/sbirka/08-datove_struktury.html#kontrola-unikatnosti-seznamu)
+#### [8.4.1. Kontrola unikátnosti seznamu](https://www.fi.muni.cz/IB111/sbirka/08-datove_struktury.html#kontrola-unikatnosti-seznamu)
 
 Napište funkci, která zkontroluje, zda předaný seznam obsahuje jen unikátní položky.
 
@@ -201,9 +207,9 @@ print(unique_check([1, 5, 6, 3, 9])) # True
 
 ---
 
-Úlohy na asociatívne pole
+### Úlohy na asociatívne pole
 
-### [8.3.2. Frekvenční analýza písmen]
+#### [8.3.2. Frekvenční analýza písmen]
 
 Napište funkci `freq_analysis(text)`, která spočítá výskyt jednotlivých písmen (znaků) ve vstupním textu a následně tento seznam vypíše setříděný sestupně podle počtu výskytů.
 
@@ -241,9 +247,9 @@ print(random_person(["Bill","David","Susan","Jane","Kent","Brad","Sam"]))
 
 ---
 
-Všeobencné úlohy
+### Všeobecné úlohy
 
-### [8.5.3. Kontrola uzávorkování](https://www.fi.muni.cz/IB111/sbirka/08-datove_struktury.html#kontrola-uzavorkovani)
+#### [8.5.3. Kontrola uzávorkování](https://www.fi.muni.cz/IB111/sbirka/08-datove_struktury.html#kontrola-uzavorkovani)
 
 Napište funkci, která pro zadaný řetězec složený pouze ze závorek `[](){}` ověří, že jde o korektní uzávorkování.
 
@@ -254,6 +260,8 @@ def parenthesis_check(value: str) -> bool:
 print(parenthesis_check('([]({()}))[]{[()]}')) # True
 print(parenthesis_check('([)]')) # False
 ```
+
+---
 
 ### Pokročilejšie úlohy na precvičenie práce so slovníkmi.
 
@@ -272,17 +280,19 @@ Záznam je vrátený právevtedy ak su všetky hodnoty rovnajú (`and`).
 
 from typing import Dict, List, Any
 
+# Type Alias
+Person = Dict[str, Any]
 
 PERSONS = [
-    {'name': 'Peter', 'age': 26, email: 'peter@example.com', gender: 'm'},
-    {'name': 'Thomas', 'age': 18, email: 'thomas@example.com', gender: 'm'},
+    {'name': 'Peter','age': 26, email: 'peter@example.com', gender: 'm'},
+    {'name': 'Thomas', 'age': 5, email: 'thomas@example.com', gender: 'm'},
     {'name': 'Jane', 'age': 30, email: 'jane@example.com', gender: 'f'},
     {'name': 'Page', 'age': 18, email: 'page@example.com', gender: 'f'},
-    {'name': 'Dalek', 'age': 10000, email: 'dalek.kaan@example.com', gender: 'u'},
+    {'name': 'Dalek', 'age': 10000, email: 'dalek@example.com', gender: 'u'},
 ]
 
 
-def advanced_filter(dictlist: List[Dict[str, Any]], params: dict) -> List[Dict[str, Any]]:
+def advanced_filter(dictlist: List[Person], params: Dict[str, Any]) -> List[Person]:
     pass
 
 
@@ -309,16 +319,20 @@ odstrani zo zoznamu všetky atribúty, ktoré sú vymenované v zozname `params`
 
 from typing import Dict, List, Any
 
+# Type Alias
+Person = Dict[str, Any]
+
 
 PERSONS = [
-    {'name': 'Peter', 'age': 26, 'pass': 'Password123', email: 'peter@example.com'},
-    {'name': 'Thomas', 'age': 18, 'pass': 'He$$lo', email: 'thomas@example.com'},
-    {'name': 'Jane', 'age': 30, 'pass': 'Dovolenka', email: 'jane@example.com'},
-    {'name': 'Page', 'age': 18, 'pass': 'BookIsAwesome', email: 'page@example.com'},
-    {'name': 'Dalek', 'age': 10000, 'pass': 'Exterminate', email: 'dalek.kaan@example.com'},
+    {'name': 'Peter', 'age': 26, 'pass': 'Password123'},
+    {'name': 'Thomas', 'age': 18, 'pass': 'He$$lo'},
+    {'name': 'Jane', 'age': 30, 'pass': 'Dovolenka'},
+    {'name': 'Page', 'age': 18, 'pass': 'BookIsAwesome'},
+    {'name': 'Dalek', 'age': 10000, 'pass': 'Exterminate'},
 ]
 
-def blacklisted_attributes(dictlist: List[Dict[str, Any]], params: List[str]) -> List[Dict[str, Any]]:
+def blacklisted_attributes(dictlist: List[Person], 
+                           params: List[str]) -> List[Person]:
     pass
 
 
@@ -360,7 +374,8 @@ PERSONS = [
     {'name': 'Dalek', 'age': 10000, email: 'dalek.kaan@example.com'},
 ]
 
-def dict_attribute_statistics(dictlist: List[Dict[str, Any]], attr: str) -> Dict[str]:
+def dict_attribute_statistics(dictlist: List[Dict[str, Any]], 
+                              attr: str) -> Dict[str]:
     pass
 
 
