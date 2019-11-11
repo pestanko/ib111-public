@@ -1,4 +1,4 @@
-# [Cvičenie 07 7. Algoritmy nad seznamy](https://www.fi.muni.cz/IB111/sbirka/07-seznamy_algoritmy.html)
+# [Cvičenie 07 Algoritmy nad seznamy](https://www.fi.muni.cz/IB111/sbirka/07-seznamy_algoritmy.html)
 
 Na tomto cvičení sa budeme venovať témam:
 
