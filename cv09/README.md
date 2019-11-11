@@ -216,6 +216,28 @@ def freq_analysis(text):
 freq_analysis(dummy)
 ```
 
+### Random Person
+
+Funcia vygeneruje záznam reprezentujúci náhodnú osobu.
+
+Osoba bude mať atribúty `name, age, password, email`
+
+`Password` bude náhodne generovane zo znakov: `A..Za..z0-1,.$!`.
+`Email` bude zložený z pouzitého mena _(lowercase)_ a domény `example.com`.
+`Age` bude z rozsahu `10 - 99`.
+
+```python
+from typing import Dict, List, Any
+
+def random_person(names: List[str]) -> Dict[str, Any]:
+    pass
+
+
+print(random_person(["Bill","David","Susan","Jane","Kent","Brad","Sam"]))
+# {'name': 'David', 'age': 45, 'email': 'david@example.com'}
+```
+
+
 
 ---
 
@@ -226,7 +248,7 @@ Všeobencné úlohy
 Napište funkci, která pro zadaný řetězec složený pouze ze závorek `[](){}` ověří, že jde o korektní uzávorkování.
 
 ```python
-def parenthesis_check(value):
+def parenthesis_check(value: str) -> bool:
     pass
 
 print(parenthesis_check('([]({()}))[]{[()]}')) # True
@@ -238,7 +260,8 @@ print(parenthesis_check('([)]')) # False
 
 #### Advanced filter 
 
-Funkcia `advanced_filter(dictlist: List[dict], params: dict)`, ktora odfiltruje prvky zoznamu slovnikov na základe viacerých parametrov.
+Funkcia `advanced_filter(dictlist: List[Dict[str, Any]], params: Dict[str, Any])`, 
+ktorá odfiltruje prvky zoznamu slovníkov na základe viacerých parametrov.
 
 Jednotlivé hodnoty atribútov v `params` sa budú porovnávať s hodnotami atribútov v slovníku.
 
@@ -246,16 +269,20 @@ Záznam je vrátený právevtedy ak su všetky hodnoty rovnajú (`and`).
 
 
 ```python
+
+from typing import Dict, List, Any
+
+
 PERSONS = [
-    {'name': 'Peter', 'age': 26, 'id': 55, email: 'peter@example.com', gender: 'm'},
-    {'name': 'Thomas', 'age': 18, 'id': 26, email: 'thomas@example.com', gender: 'm'},
-    {'name': 'Jane', 'age': 30, 'id': 92, email: 'jane@example.com', gender: 'f'},
-    {'name': 'Page', 'age': 18, 'id': 93, email: 'page@example.com', gender: 'f'},
-    {'name': 'Dalek', 'age': 10000, 'id': 0, email: 'dalek.kaan@example.com', gender: 'u'},
+    {'name': 'Peter', 'age': 26, email: 'peter@example.com', gender: 'm'},
+    {'name': 'Thomas', 'age': 18, email: 'thomas@example.com', gender: 'm'},
+    {'name': 'Jane', 'age': 30, email: 'jane@example.com', gender: 'f'},
+    {'name': 'Page', 'age': 18, email: 'page@example.com', gender: 'f'},
+    {'name': 'Dalek', 'age': 10000, email: 'dalek.kaan@example.com', gender: 'u'},
 ]
 
 
-def advanced_filter(dictlist: List[dict], params: dict) -> List[dict]:
+def advanced_filter(dictlist: List[Dict[str, Any]], params: dict) -> List[Dict[str, Any]]:
     pass
 
 
@@ -275,10 +302,14 @@ print(advanced_filter(PERSONS, {'age': 99, gender: 'f'}))
 
 #### Blacklisted attributes
 
-Funkcia `blacklisted_attributes(dictlist: List[dict], params: List[str])` 
+Funkcia `blacklisted_attributes(dictlist: List[Dict[str, Any]], params: List[str])` 
 odstrani zo zoznamu všetky atribúty, ktoré sú vymenované v zozname `params`.
 
 ```python
+
+from typing import Dict, List, Any
+
+
 PERSONS = [
     {'name': 'Peter', 'age': 26, 'pass': 'Password123', email: 'peter@example.com'},
     {'name': 'Thomas', 'age': 18, 'pass': 'He$$lo', email: 'thomas@example.com'},
@@ -287,7 +318,7 @@ PERSONS = [
     {'name': 'Dalek', 'age': 10000, 'pass': 'Exterminate', email: 'dalek.kaan@example.com'},
 ]
 
-def blacklisted_attributes(dictlist: List[dict], params: List[str]) -> List[dict]:
+def blacklisted_attributes(dictlist: List[Dict[str, Any]], params: List[str]) -> List[Dict[str, Any]]:
     pass
 
 
@@ -307,5 +338,42 @@ print(blacklisted_attributes(PERSONS, ['pass', 'age', 'height']))
 ```
 
 
+#### Statistics per attribute
+
+Funkcia `dict_attribute_statistics(dictlist: List[Dict[str, Any]], attr: str) -> Dict[str]:`,
+ktorá spočíta nad zadaným atribútom základné štatistiky. Záznamy, u ktorých daný atribút chýba budú preskočené.
+
+Štatistiky:
+- `size` - počet hodnôt v štatistickej množine _(vo väčšine prípadov bude rovný `len(dictlist)`)_.
+- `median` - Medián daných hodnôt _(usporiadajte hodnoty atributov a vyberte stredný prvok)_
+- `min` - najmenší prvok
+- `max` - najväčší prvok
+- `average` - Priemer, iba ak je atribút čiselného typu `isinstance(attr_value, int) or isinstance(attr_value, float)` 
+
+```python
+
+PERSONS = [
+    {'name': 'Peter', 'age': 26, email: 'peter@example.com'},
+    {'name': 'Thomas', 'age': 18, 'score': 15, email: 'thomas@example.com'},
+    {'name': 'Jane', 'age': 30, 'score': 12, email: 'jane@example.com'},
+    {'name': 'Page', 'age': 18, 'score': 18, email: 'page@example.com'},
+    {'name': 'Dalek', 'age': 10000, email: 'dalek.kaan@example.com'},
+]
+
+def dict_attribute_statistics(dictlist: List[Dict[str, Any]], attr: str) -> Dict[str]:
+    pass
 
 
+
+print(dict_attribute_statistics(PERSONS, 'width'))
+# Result: {'size': 0, 'median': None, 'min': None, 'max': None}
+
+print(dict_attribute_statistics(PERSONS, 'age'))
+# Result: {'size': 5, 'median': 26, 'min': 18, 'max': 10000, 'average': 2018.4}
+
+print(dict_attribute_statistics(PERSONS, 'score'))
+# Result: {'size': 3, 'median': 15, 'min': 12, 'max': 18, 'average': 15}
+
+print(dict_attribute_statistics(PERSONS, 'name'))
+# Result: {'size': 5, 'median': 'Page', 'min': 'Dalek', 'max': 'Thomas'}
+```
