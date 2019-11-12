@@ -209,7 +209,7 @@ print(unique_check([1, 5, 6, 3, 9])) # True
 
 ### Úlohy na asociatívne pole
 
-#### [8.3.2. Frekvenční analýza písmen]
+#### [8.3.2. Frekvenční analýza písmen](https://www.fi.muni.cz/IB111/sbirka/08-datove_struktury.html#frekvencni-analyza-pismen)
 
 Napište funkci `freq_analysis(text)`, která spočítá výskyt jednotlivých písmen (znaků) ve vstupním textu a následně tento seznam vypíše setříděný sestupně podle počtu výskytů.
 
