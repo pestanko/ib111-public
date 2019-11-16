@@ -1,4 +1,4 @@
-# [Cvičenie 09 Algoritmy nad seznamy](https://www.fi.muni.cz/IB111/sbirka/08-datove_struktury.html)
+# [Cvičenie 09 Datové struktury](https://www.fi.muni.cz/IB111/sbirka/08-datove_struktury.html)
 
 Na tomto cvičení sa budeme venovať témam:
 - Dátové štruktúry
