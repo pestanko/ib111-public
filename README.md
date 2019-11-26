@@ -14,6 +14,7 @@ There are multiple covered topics - some of them are more advanced and not neces
 - [Tutorial 07](./cv07/README.md)
 - [Tutorial 09](./cv09/README.md)
 - [Tutorial 10](./cv10/README.md)
+- [Tutorial 11](./cv11/README.md)
 
 
 
